@@ -499,8 +499,10 @@ module ActiveRecord
           result = get_result(@connection.getDeleted(get_deleted_element), :getDeleted)
           
           ids = []
-          result[:deletedRecords].each do |v| 
-            ids << v[:id]
+          if result && result[:deletedRecords]
+            result[:deletedRecords].each do |v| 
+              ids << v[:id]
+            end
           end
           
           ids
