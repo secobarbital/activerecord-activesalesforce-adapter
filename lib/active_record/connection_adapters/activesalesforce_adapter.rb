@@ -483,7 +483,7 @@ module ActiveRecord
           
           result = get_result(@connection.getUpdated(get_updated_element), :getUpdated)
           
-          result[:ids]
+          result[:ids] || []
         }
       end
       
