@@ -500,9 +500,7 @@ module ActiveRecord
           
           ids = []
           if result && result[:deletedRecords]
-            result[:deletedRecords].each do |v| 
-              ids << v[:id]
-            end
+            ids = result[:deletedRecords].is_a?(Array) ? result[:deletedRecords].collect { |v| v[:id] } : [result[:deletedRecords][:id]]
           end
           
           ids
