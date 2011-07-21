@@ -65,6 +65,8 @@ require 'rforce/binding'
 require 'rforce/soap_response_rexml'
 require 'rforce/soap_response_hpricot' rescue nil
 require 'rforce/soap_response_expat' rescue nil
+require 'rforce/soap_response_nokogiri' rescue nil
+
 
 
 module RForce
@@ -75,6 +77,7 @@ module RForce
   
   SoapResponse = 
     parser(:SoapResponseExpat) ||
+    parser(:SoapResponseNokogiri) ||
     parser(:SoapResponseHpricot) ||
     SoapResponseRexml
   
